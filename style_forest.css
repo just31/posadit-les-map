@@ -1,0 +1,304 @@
+                  @font-face {
+                    font-family: OpenSans-Regular; /* Гарнитура шрифта */
+                    src: url(http://intranet.russiancarbon.org/f/min/map/OpenSans-Regular.ttf); /* Путь к файлу со шрифтом */
+                  }
+                  body {
+                    background-color: #333;
+                    color: #fff;
+                    text-align: justify;
+                    text-shadow: 0 1px 1px rgba(0,0,0,.1);
+                  }
+                  h1 {margin-left: 10px !important; font-size: 30px; font-family: OpenSans-Regular; color: #B0BEA4;}
+                  .main {
+                    margin-left: 10px;
+                  }
+                  .main p {margin: 5px 0 -5px 0; font-family: OpenSans-Regular;}
+                  .route-length1 {
+                     text-align: left;
+                     font-size: 15px; color: Grey !important;
+                     font-family: Verdana;
+                     margin: -5px 0 0 10px;
+                  }
+                  .route-length1 strong {font-size: 12px; color: #ddb505;}
+                  .route-length1 h3 {font-size: 13px;}
+                  .route-length_travel {
+                     text-align: left;
+                     font-size: 15px; color: Grey !important;
+                     font-family: Verdana;
+                     margin: -5px 0 0 10px;
+                  }
+                  .route-length_travel strong {font-size: 12px; color: #ddb505;}
+                  .route-length_travel h3 {font-size: 13px;}
+                  .route-length_route {
+                     text-align: left;
+                     font-size: 15px; color: Grey !important;
+                     font-family: Verdana;
+                     margin: -15px 0 0 10px;
+                  }
+                  .route-length_route strong {font-size: 12px; color: #ddb505;}
+                  .route-length_route h3 {font-size: 13px;}
+                  .route-length_fuel {
+                     text-align: left;
+                     font-size: 15px; color: Grey !important;
+                     font-family: Verdana;
+                     margin: -15px 0 0 10px;
+                  }
+                  .route-length_fuel strong {font-size: 12px; color: #ddb505;}
+                  .route-length_fuel h3 {font-size: 13px;}
+                  .head_info {font-size: 16px; text-align: left; color: #B0BEA4; font-family: OpenSans-Regular; margin-left: 10px !important;}
+                  .route-length2 {
+                     text-align: justify;
+                     font-size: 14px; color: Grey !important;
+                     font-family: Verdana;
+                  }
+                  .route-length2 h3 {font-size: 13px; color: color: #FEFFF9;}
+                  .route-length2 strong {font-size: 11px; color: #ddb505; font-weight: normal;}
+                  .route-modal-length {
+                     text-align: left;
+                     font-size: 15px; color: Grey !important;
+                     font-family: Verdana;
+                     margin: -5px 0 0 10px;
+                  }
+                  .content_map3 {
+                     margin: -10px 0 0 0;
+                     overflow:hidden;
+                     border: 0px solid #E8CCA3;
+                     text-align: justify;
+                     background-color: #65757b;
+                     padding: 10px;
+                     border-radius: 2px;
+                     font-size: 16px;
+                     color: #FEFFF9 !important;
+                     width: auto;
+                  }
+                  #map_main1 {
+                     background-color: transparent;
+                     border-radius: 5px;
+                     padding: 3px;
+                     border: 1px solid #B0BEA4;
+                  }
+                  #marker_main{
+                     margin: 0;
+                     padding: 0;
+                  }
+                  .button{
+                     height:30px;
+                     border-color: #ECEEC9;
+                     border-style:solid;
+                     border-width:1px;
+                     background:#B22222;
+                     cursor:pointer;
+                     color: white;
+                     -moz-border-radius:  5px; /* Firefox */
+                     -webkit-border-radius:  5px; /* Safari 4 */
+                     border-radius:  5px; /* IE 9, Safari 5, Chrome */
+                  }
+                  .submit {
+	                 width: 90px;
+                     height: 90px;
+	                 padding: 0 0 2px;
+                     margin-bottom: 5px;
+	                 font: 16px "Trebuchet MS", Tahoma, Arial, sans-serif;
+	                 outline: none;
+	                 position: relative;
+	                 cursor: pointer;
+	                 border-radius: 100px;
+	                 color: #913944;
+	                 border: 1px solid #D16573;
+	                 border-top: 1px solid #EE8090;
+	                 border-bottom: 1px solid #B84D5A;
+	                 text-shadow: 1px 1px #F9A0AD;
+	                 box-shadow:
+		                 inset 0 1px #FBC1D0,
+		                 inset 1px 0 #F99AAB,
+		                 inset -1px 0 #F99AAB,
+		                 inset 0 -1px #F68391,
+		                 0 4px #CB5462,
+		                 0 5px #B84D5A,
+		                 0 6px 4px rgba(0,0,0,0.4)
+	                 ;
+	                 background: -moz-linear-gradient(top,  #f997b0 0%, #f56778 100%); /* FF3.6+ */
+                     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f997b0), color-stop(100%,#f56778)); /* Chrome,Safari4+ */
+                     background: -webkit-linear-gradient(top,  #f997b0 0%,#f56778 100%); /* Chrome10+,Safari5.1+ */
+	                 background: -o-linear-gradient(top,  #f997b0 0%,#f56778 100%); /* Opera 11.10+ */
+	                 background: -ms-linear-gradient(top,  #f997b0 0%,#f56778 100%); /* IE10+ */
+	                 background: linear-gradient(top,  #f997b0 0%,#f56778 100%); /* W3C */
+	                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f997b0', endColorstr='#f56778',GradientType=0 ); /* IE6-9 */
+	                 background-color: #F77E94;
+                  }
+                  .submit::-moz-focus-inner{border:0}
+                     .submit:hover {
+	                 border-top: 1px solid #E26272;
+	                 box-shadow:
+		                 inset 0 1px #F9AAB5,
+		                 inset 1px 0 #F99AAB,
+		                 inset -1px 0 #F99AAB,
+		                 inset 0 -1px #F99BAC,
+		                 0 2px #CB5462,
+		                 0 3px #B84D5A,
+		                 0 4px 2px rgba(0,0,0,0.4)
+	                 ;
+                     top: 2px;
+                  }
+                  .submit:active {
+	                 top: 6px;
+	                 border: 1px solid #C13345;
+	                 border-top: 0px solid #A14753;
+	                 border-bottom: 0px solid #DA6070;
+	                 background: #F56C7E;
+	                 box-shadow: inset 0 0 0 #C13345;
+                  }
+                  }
+                  #content_map1 {
+                     margin: -10px 0 0 0; overflow:hidden; border: 0px solid #E8CCA3;
+                     text-align: justify; background-color: @carbon-gray;
+                     padding: 10px; border-radius: 2px; font-size: 13px; color: #000000 !important;
+                  }
+                  #content_map1 strong {font-size: 14px; color: @carbon-orange;}
+                  .toolbar{width:100% !important;}
+                  .toolbar td, th {
+                     padding: 0px;
+                     border: 1px solid #333;
+                  }
+                  table {
+                     width: 100%;
+
+                     margin: 0 0 5px 0;
+                  }
+                  tr, td, th {
+                     padding: 0px;
+                     border: 1px solid #333;
+                  }
+                  .result-co2{
+                     margin-top: -10px !important;
+                     margin-bottom: -5px !important;
+                  }
+                  .result-co2 p {
+                     font-family: OpenSans-Regular;
+                     font-size: 22px;
+                     color: #ECEECD;
+                     margin-right: 5px;
+                  }
+                  .result-co2 small{
+                     font-size: 14px;
+                  }
+                  .row-fluid{
+                     margin-left: 5px !important;
+                  }
+                  .span12{
+                     opacity: 0;
+                     z-index: 100 !important;
+                  }
+                  #icon01{
+                     cursor:pointer !important;
+                     opacity: 1;
+                  }
+                  #icon02{
+                     opacity: 1;
+                     margin-left: 55px !important;
+                     margin-top: -10px !important;
+                     margin-bottom: -5px !important;
+                  }
+                  .pointerImg{
+                     position:absolute;
+	                 top: 0px;
+                     left: 0px;
+                     opacity: 0;
+                     z-index: 1;
+                  }
+                  .pointerImg1{
+                     position:absolute;
+	                 top: 0px;
+                     left: 0px;
+                     opacity: 0;
+                     z-index: 1;
+                  }
+                  .link-up{
+                    display: none;
+                    margin-right: 5px !important;
+                  }
+                  .link-up a{
+                    color: #FFFEF4 !important;
+                    font-weight: bold;
+                  }
+                  .ymaps-2-1-22-balloon{
+                    border-radius: 0px;
+                  }
+                  .ymaps-2-1-22-balloon__layout{
+                    position: relative;
+                    display: block;
+                    overflow: hidden;
+                    background: #E5E5E5 !important;
+                  }
+                  /* Квадратный макет метки для посаженных участков */
+                    .square_layout {
+                    position: absolute;
+                    left: -23px;
+                    top: -23px;
+                    width: 46px;
+                    height: 46px;
+                    line-height: 46px;
+                    border: 2px solid #E1EEE5;
+                    background-color: #218703;
+                    color: #218703;
+                  }
+                  /* Квадратный макет метки для пустых участков */
+                    .square_layout1 {
+                    position: absolute;
+                    left: -23px;
+                    top: -23px;
+                    width: 46px;
+                    height: 46px;
+                    line-height: 46px;
+                    border: 2px solid #218703;
+                    background-color: #E1EEE5;
+                    color: #218703;
+                  }
+                  #form_zakaz{
+                    margin-left: 14px;
+                  }
+                  .type_file {
+                    position: relative;
+                    height: 26px;
+                  }
+                  .inputFile {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    opacity: 0;
+                    width: 267px;
+                    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+                    -moz-opacity: 0;
+                    -khtml-opacity: 0;
+                    cursor: pointer;
+                 }
+                 .fonTypeFile {
+                    width: 400px;
+                    height: 26px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    cursor: pointer;
+                 }
+                 .inputFileVal {
+                    position: absolute;
+                    top: 3px;
+                    left: 5px;
+                    z-index: 2;
+                    width: 250px;
+                    background: none;
+                    border: none;
+                    color: #000000 !important;
+                    width: 400px !important;
+                 }
+                 /** Styling input[type=file] **/
+                 .btn-file { position: relative; overflow: hidden; margin-right: 4px; }
+                 .btn-file input { position: absolute; top: 0; right: 0; margin: 0; opacity: 0; filter: alpha(opacity=0);
+                 transform: translate(-300px, 0) scale(4); font-size: 23px; direction: ltr; cursor: pointer; }
+                 /* Fix for IE 7: */
+                 * + html .btn-file { padding: 2px 15px; margin: 1px 0 0 0; }
+                 .control-label{
+                   color: #594540 !important;
+                 }
