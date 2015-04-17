@@ -1,4 +1,4 @@
-                // Создаем коллекцию геообъектов и задаем опции.
+﻿                // Создаем коллекцию геообъектов и задаем опции.
                 var myGeoObjects = new ymaps.GeoObjectCollection([55.363411, 39.736211]);
 
                 // Создаем круг, с площадью посаженного участка леса. Будем добавлять в него, квадраты.
@@ -42,7 +42,7 @@
                 var squarePlacemark = new ymaps.Placemark(
                  [55.363411, 39.736211], {
                    hintContent: 'Посаженный участок леса'
-                   //balloonContent: 'Площадь высадки леса - 35 га'
+                   //balloonContent: 'Площадь высадки леса - 35 га'.
                  }, {
                    iconLayout: squareLayout,
                    iconShape: {
