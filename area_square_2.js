@@ -689,7 +689,7 @@
                 var squarePlacemark_l_down_1 = new ymaps.Placemark(
                  [55.363111, 39.735948], {
                    hintContent: 'Здесь Вы можете посадить лес'
-                   //balloonContent: 'Площадь высадки леса - 37 га'
+                   //balloonContent: 'Площадь высадки леса - 37 га.'
                  }, {
                    iconLayout: squareLayout,
                    iconShape: {
