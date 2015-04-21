@@ -1,4 +1,4 @@
-/* Copyright Art. Lebedev | http://www.artlebedev.ru */
+﻿/* Copyright Art. Lebedev | http://www.artlebedev.ru */
 /* Created 2014-01-20 by Rie (Iblyaminov Albert) */
 /* Updated 2014-08-18 by dryzhov (Ryzhov Dmitry) */
 
@@ -47,7 +47,7 @@ function Map (root) {  // !!!!
   };
 
 Map.prototype.createMap = function () {
-    
+
 // Если данные отправляются от формы методом POST. Обрабатываем их, проверяем и выводим: либо текст об успешной отправке, либо текст с предупреждением. На дозаполнение обязательных полей.
 // Тексты выводятся в модальных окнах.
 // Данный метод отправки полей формы, лучше использовать, если предполагается пересылка вложенных файлов, в сообщении.
@@ -803,7 +803,12 @@ if(get !== '') {
                 "hintContent": "Акция Stop CO2"
             },
             "options": {
-                "preset": "islands#darkGreenCircleDotIcon",
+                //"preset": "islands#darkGreenCircleDotIcon",
+                // Указываем картинку, ее смещение и размеры, для метки акции.
+                iconLayout: 'default#image',
+                iconImageHref: '/f/min/posadit-les/img/4_1.gif',
+                iconImageSize: [35, 43],
+                iconImageOffset: [-20, -20],
                 balloonMaxHeight: 800,
                 balloonContentLayout: BalloonContentLayout3
             }
@@ -821,7 +826,12 @@ if(get !== '') {
                 "hintContent": "Акция День дерева"
             },
             "options": {
-                "preset": "islands#darkGreenCircleDotIcon",
+                //"preset": "islands#darkGreenCircleDotIcon",
+                // Указываем картинку, ее смещение и размеры, для метки акции.
+                iconLayout: 'default#image',
+                iconImageHref: '/f/min/posadit-les/img/4_1.gif',
+                iconImageSize: [35, 43],
+                iconImageOffset: [-20, -20],
                 balloonMaxHeight: 800,
                 balloonContentLayout: BalloonContentLayout4
             }
@@ -839,7 +849,12 @@ if(get !== '') {
                 "hintContent": "Акция Поможем Природе вместе!"
             },
             "options": {
-                "preset": "islands#darkGreenCircleDotIcon",
+                //"preset": "islands#darkGreenCircleDotIcon",
+                // Указываем картинку, ее смещение и размеры, для метки акции.
+                iconLayout: 'default#image',
+                iconImageHref: '/f/min/posadit-les/img/4_1.gif',
+                iconImageSize: [35, 43],
+                iconImageOffset: [-20, -20],
                 balloonMaxHeight: 800,
                 balloonContentLayout: BalloonContentLayout5
             }
@@ -857,7 +872,14 @@ if(get !== '') {
                 "hintContent": "Акция с компаниями Алкоа, Топливный регион"
             },
             "options": {
-                "preset": "islands#darkGreenCircleDotIcon",
+                //"preset": "islands#orangeCircleIcon",
+                // Указываем картинку, ее смещение и размеры, для метки акции.
+                iconLayout: 'default#image',
+                //iconImageHref: 'http://gmaps-utility-library.googlecode.com/svn/trunk/markerclusterer/images/people35.png',
+                //iconImageSize: [55, 55],
+                iconImageHref: '/f/min/posadit-les/img/3_1.gif',
+                iconImageSize: [35, 26],
+                iconImageOffset: [-10, -20],
                 balloonMaxHeight: 800,
                 balloonContentLayout: BalloonContentLayout1
             }
@@ -875,7 +897,20 @@ if(get !== '') {
                 "hintContent": "Акция Наш лес. Посади свое дерево"
             },
             "options": {
-                "preset": "islands#darkGreenCircleDotIcon",
+                //"preset": "islands#orangeCircleIcon",
+                // Указываем картинку, ее смещение и размеры, для метки акции.
+                iconLayout: 'default#image',
+                iconImageHref: '/f/min/posadit-les/img/3_1.gif',
+                iconImageSize: [35, 26],
+                iconImageOffset: [-20, -20],
+                /*
+                // Чтобы по картинке можно было кликнуть, определим интерактивную область над ней.
+                iconShape: {
+                  type: 'Circle',
+                  coordinates: [0, 0],
+                  radius: 27
+                },
+                */
                 balloonMaxHeight: 800,
                 balloonContentLayout: BalloonContentLayout2
             }
@@ -893,7 +928,12 @@ if(get !== '') {
                 "hintContent": "Акция с компанией Алкоа"
             },
             "options": {
-                "preset": "islands#darkGreenCircleDotIcon",
+                //"preset": "islands#orangeCircleIcon",
+                // Указываем картинку, ее смещение и размеры, для метки акции.
+                iconLayout: 'default#image',
+                iconImageHref: '/f/min/posadit-les/img/3_1.gif',
+                iconImageSize: [35, 26],
+                iconImageOffset: [-20, -20],
                 balloonMaxHeight: 800,
                 // Балун будет всплывать над меткой.
                 //balloonPanelMaxMapArea: 0,
@@ -903,21 +943,103 @@ if(get !== '') {
             }
         }
     ]
-}).applyBoundsToMap(myMap, {checkZoomRange: true}); // Делаем приближение карты так, чтобы на ней были охвачены все объекты.
+}).applyBoundsToMap(myMap, {checkZoomRange: true}); // Делаем приближение карты так, чтобы на ней были охвачены все объекты. И не было бы серых областей, в случае, если область показа очень мала.
 // Добавляем объекты на карту, методом кластеризации. Ближ. объекты будут объединятся в кластеры. Также задаем стиль для метки кластера.
-myMap.geoObjects.add(result.clusterize()).options.set("preset", "islands#invertedDarkGreenClusterIcons");
+// myMap.geoObjects.add(result.clusterize()).options.set("preset", "islands#invertedDarkGreenClusterIcons");
 
-
-// С помощью jQuery.getJSON, подгружаем соответствующий файл с акциями по посадке деревьев.
-/*
-jQuery.getJSON('/f/min/map/posadki.json', function (json) {
-  var geoObjects = ymaps.geoQuery(json)
-   .addToMap(myMap)
-   .applyBoundsToMap(myMap, {
-   checkZoomRange: true
-   });
+var clusterer = ymaps.geoQuery(result).clusterize();
+myMap.geoObjects.add(clusterer).options.set({
+ clusterIcons: [{
+   href: '/f/min/posadit-les/img/m2.png',
+   size: [60, 59],
+   offset: [-28, -20]
+ }]
 });
+
+// Созадем кнопку "Вернуться к выбору участка", для отображения ее внутри кластеризатора.
+var ButtonLayout = ymaps.templateLayoutFactory.createClass(
+  "<div id='close_first' class='btn btn-warning'>" +
+    "{{data.content}}" +
+  "</div>"
+  ),
+  firstButton = new ymaps.control.Button({
+  data: {
+    content: "Вернуться к выбору участка"
+  },
+  options: {
+    // Подключаем созданный макет.
+    layout: ButtonLayout
+  }
+});
+
+// Отслеживаем событие клика по метке кластера. В полученную область карты, добавляем кнопку "Вернуться к выбору участка". С возможностью вернуться к первоначальному выбору акций Фонда.
+clusterer.events.add('click', function (e) {
+/*
+var geoObjects = clusterer.getGeoObjects(),
+    shownObjectsCounter = 0;
+for (var i = 0, l = geoObjects.length; i < l; i++) {
+    if (clusterer.getObjectState(geoObjects[i]).isShown) {
+        shownObjectsCounter++;
+    }
+}
 */
+//console.log('Сейчас на карте показаны ' + shownObjectsCounter + ' меток из ' + geoObjects.length + '.');
+
+// Отслеживаем клик по выбранному на карте геообъекту. И тип события.
+var target = e.get('target'),
+         type = e.get('type');
+
+//console.log(target.properties.get('hintContent'));
+
+// Определяем значение хинта, выбранной метки на карте. Чтобы использовать его для определения выбранной акции.
+var target_geoObject = target.properties.get('hintContent');
+//console.log(target_geoObject);
+
+// Далее по всем акциям Фонда входящим в кластеризатор, делаем невидимой, кнопку "Вернуться к выбору участка". Чтобы она работала только внутри кластеризатора. При клике по его значку на карте.
+if (target_geoObject === 'Акция Stop CO2') {
+  firstButton.options.set({'visible': false});
+}
+else if (target_geoObject === 'Акция с компанией Алкоа') {
+  firstButton.options.set({'visible': false});
+}
+else if (target_geoObject === 'Акция День дерева') {
+  firstButton.options.set({'visible': false});
+}
+else if (target_geoObject === 'Акция Поможем Природе вместе!') {
+  firstButton.options.set({'visible': false});
+}
+else if (target_geoObject === 'Акция с компаниями Алкоа, Топливный регион') {
+  firstButton.options.set({'visible': false});
+}
+else if (target_geoObject === 'Акция Наш лес. Посади свое дерево') {
+  firstButton.options.set({'visible': false});
+}
+// Если выбрана метка кластеризатора, выводим на карту добавленную ранее кнопку "Вернуться к выбору участка". Задаем ее опции и расположение.
+else {
+  // Устанавливаем максимальную ширину кнопки. Чтобы весь текст помещался на ней. Отключаем свойство, что кнопка нажата(не будет притоплена). Указываем также опцию 'visible': true, кнопка видима.
+  firstButton.options.set({'selectOnClick': false, 'maxWidth': 200, 'visible': true});
+  // Указываем расположение кнопки на карте.
+  myMap.controls.add(firstButton, {float: 'left'});
+
+  // При нажатии на кнопку, обновляем страницу с картой.
+  firstButton.events.add("click", function () {
+    //alert("Клик по кнопке произошел.");
+    document.location.reload();
+ });
+}
+
+ /*
+// Если событие произошло на кластере. Добавляем на карту кнопку "Вернуться к выбору участка", в выводе объектов находящихся в кластере. С возможностью вернуться к первоначальному выбору.
+if (typeof target.getGeoObjects != 'undefined') {
+ //$("#close_first").css({'display' : 'block'});
+ //alert("Клик по метке кластера, произошел!");
+
+}
+else {
+}
+*/
+
+});
 
 };
 
