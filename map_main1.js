@@ -6,7 +6,7 @@ define('map_main1', ['jquery', 'als'], function ($, als) {
   'use strict';
 
   /**
-   * Yandex map with placemarks
+   * Yandex Map1 with placemarks
    * by default being positioned at the center of Moscow
    *
    * @param {Object} options
@@ -16,7 +16,7 @@ define('map_main1', ['jquery', 'als'], function ($, als) {
    * @param {Array} [options.placemarks]
    * @constructor
    */
-function Map (root) {  // !!!!
+function Map1 (root) {  // !!!!
     var defaults = {
       coords: [{ lat: 55.752078, lng:37.621147 }],
       map_center: [37.621147, 55.752198],
@@ -35,7 +35,7 @@ function Map (root) {  // !!!!
   /**
    * Загрузка карты
    */
-  Map.prototype.loadMap = function () {
+  Map1.prototype.loadMap = function () {
     var yMaps = $.Deferred();
     window.yandexMapsLoaded = function () {
       yMaps.resolve();
@@ -46,7 +46,7 @@ function Map (root) {  // !!!!
     require(['http://dimik.github.io/ymaps/examples/migration/1.x-2.0/user-layer/tiler-converter.js']);
   };
 
-Map.prototype.createMap = function () {
+Map1.prototype.createMap = function () {
 
 // Если данные отправляются от формы методом POST. Обрабатываем их, проверяем и выводим: либо текст об успешной отправке, либо текст с предупреждением. На дозаполнение обязательных полей.
 // Тексты выводятся в модальных окнах.
@@ -55,6 +55,8 @@ var name = $("#name").val();
 var threes = $("#threes").val();
 var email = $("#email").val();
 var address = $("#address").val();
+
+var BalloonContentLayout, BalloonContentLayout1, BalloonContentLayout2, BalloonContentLayout3, BalloonContentLayout4, BalloonContentLayout5, BalloonContentLayout7;
 
 if(name !== '' && threes !== '' && email !== '' && address !== '')
 {
@@ -164,11 +166,9 @@ for(var i in parametr) {
     //console.log(j);
     //console.log(values_zakaz);
 }
-
 var tmp = [];		// два вспомагательных
 var tmp2 = [];		// массива
 var param = [];
-
 var get = decodeURIComponent(location.search);	// строка GET запроса
 if(get !== '') {
 	tmp = (get.substr(1)).split('&');	// разделяем переменные
@@ -197,6 +197,8 @@ if(get !== '') {
     // Делаем отступ:
     var widthR = $(window).width();// ширина экрана
     var widthR_1 = widthR - 25;
+
+    var counter;
 
     // Устанавливаем полученные значения, в качестве размеров для блока с картой.
     $('#map_main1').css({'width':widthR_1,'height':heightR_1});
@@ -262,6 +264,7 @@ if(get !== '') {
                 });
                 */
 
+                var m;
                 // Подстраиваем размер тайла(980px), под масштаб карты. С соответствующим приближением.
                 layer.getTileSize = function (zoom) {
                   m = zoom > 12 ? Math.pow(2, zoom - 7.5) : 980;
@@ -438,7 +441,7 @@ if(get !== '') {
         // Макет балуна акции Наш лес. Посади свое дерево.
         BalloonContentLayout2 = ymaps.templateLayoutFactory.createClass(
             '<div style="margin: 10px;">' +
-              '<p style="background-color: rgba(0, 136, 203, 1) !important; padding: 5px; color: #ffffff;"><b style="font-size: 14px;">Акция Наш лес. Посади свое дерево.</b><br /><i style="font-size: 12px;">13 сентября 2014 года | Фонд "Русский углерод" </i></p><p style="text-align: justify; margin-top: 11px;"><img src="http://www.forest.ru/upload/main/b12/b12fba239eaa2df056d606c2f0cacb18.jpg" title="Акция Наш лес. Посади свое дерево." width="170px" style="float: right; padding: 2px; border: 1px solid rgba(0, 136, 203, 1); border-radius: 5px; margin-left: 7px; margin-top: 7px;" /><small>Фонд принял участие в акции "Наш лес. Посади свое дерево". В посадке деревьев в Балашихе приняли участие более 3000 человек, как местных жителей, так и членов трудовых коллективов различных государственных и частных организаций и компаний Московской области.<br /><p style="border-top: 1px solid #808080; margin-top: 14px;"></p><p style="margin-top: 11px;"><b style="color: #5cb85c;">Восстановлено 1000 деревьев</b><br /><b style="color: #0088CB; font-weight: bold;">Кол-во волонтеров 15 человек</b></small></p></p><br /><a href="#" class="btn btn-success" id="show_event3">Посмотреть восстановленый участок</a>' +
+              '<p style="background-color: rgba(0, 136, 203, 1) !important; padding: 5px; color: #ffffff;"><b style="font-size: 14px;">Акция Наш лес. Посади свое дерево.</b><br /><i style="font-size: 12px;">13 сентября 2014 года | Фонд "Русский углерод" </i></p><p style="text-align: justify; margin-top: 11px;"><img src="https://russiancarbon.org/r/=s150/=316283181/_gallery/FF4A2DF4-2F62-4C1C-B780-15CBD8EDE64C/@1.jpg" title="Акция Наш лес. Посади свое дерево." width="170px" style="float: right; padding: 2px; border: 1px solid rgba(0, 136, 203, 1); border-radius: 5px; margin-left: 7px; margin-top: 7px;" /><small>Фонд принял участие в акции "Наш лес. Посади свое дерево". В посадке деревьев в Балашихе приняли участие более 3000 человек, как местных жителей, так и членов трудовых коллективов различных государственных и частных организаций и компаний Московской области.<br /><p style="border-top: 1px solid #808080; margin-top: 14px;"></p><p style="margin-top: 11px;"><b style="color: #5cb85c;">Восстановлено 1000 деревьев</b><br /><b style="color: #0088CB; font-weight: bold;">Кол-во волонтеров 15 человек</b></small></p></p><br /><a href="#" class="btn btn-success" id="show_event3">Посмотреть восстановленый участок</a>' +
             '</div>', {
 
             // Переопределяем функцию build, чтобы при создании макета начинать
@@ -469,6 +472,7 @@ if(get !== '') {
                   projection: ymaps.projection.sphericalMercator
                 });
 
+                var m;
                 // Подстраиваем размер тайла(980px), под масштаб карты. С соответствующим приближением.
                 layer.getTileSize = function (zoom) {
                   m = zoom >= 18 ? Math.pow(2, zoom - 7.5) : 980;
@@ -561,6 +565,7 @@ if(get !== '') {
                   projection: ymaps.projection.sphericalMercator
                 });
 
+                var m;
                 // Подстраиваем размер тайла(980px), под масштаб карты. С соответствующим приближением.
                 layer.getTileSize = function (zoom) {
                   m = zoom >= 18 ? Math.pow(2, zoom - 7.5) : 980;
@@ -782,6 +787,11 @@ if(get !== '') {
                 }
         });
 
+        // Создаем макет для hinta. Будет подключаться при наведении на любую из акций.
+        var MyHintContentLayout = ymaps.templateLayoutFactory.createClass(
+        '<div class="hint" style="color:#373737;">$[properties.hintContent]</div>'
+        );
+
     // Сохраняем значение this.yMap в переменнную myMap.
     var myMap = this.yMap;
 
@@ -810,7 +820,8 @@ if(get !== '') {
                 iconImageSize: [35, 43],
                 iconImageOffset: [-20, -20],
                 balloonMaxHeight: 800,
-                balloonContentLayout: BalloonContentLayout3
+                balloonContentLayout: BalloonContentLayout3,
+                hintContentLayout: MyHintContentLayout
             }
         },
         {
@@ -833,7 +844,8 @@ if(get !== '') {
                 iconImageSize: [35, 43],
                 iconImageOffset: [-20, -20],
                 balloonMaxHeight: 800,
-                balloonContentLayout: BalloonContentLayout4
+                balloonContentLayout: BalloonContentLayout4,
+                hintContentLayout: MyHintContentLayout
             }
         },
         {
@@ -856,7 +868,8 @@ if(get !== '') {
                 iconImageSize: [35, 43],
                 iconImageOffset: [-20, -20],
                 balloonMaxHeight: 800,
-                balloonContentLayout: BalloonContentLayout5
+                balloonContentLayout: BalloonContentLayout5,
+                hintContentLayout: MyHintContentLayout
             }
         },
         {
@@ -881,7 +894,8 @@ if(get !== '') {
                 iconImageSize: [35, 26],
                 iconImageOffset: [-10, -20],
                 balloonMaxHeight: 800,
-                balloonContentLayout: BalloonContentLayout1
+                balloonContentLayout: BalloonContentLayout1,
+                hintContentLayout: MyHintContentLayout
             }
         },
         {
@@ -912,7 +926,8 @@ if(get !== '') {
                 },
                 */
                 balloonMaxHeight: 800,
-                balloonContentLayout: BalloonContentLayout2
+                balloonContentLayout: BalloonContentLayout2,
+                hintContentLayout: MyHintContentLayout
             }
         },
         {
@@ -939,7 +954,8 @@ if(get !== '') {
                 //balloonPanelMaxMapArea: 0,
                 // Если карта имеет маленькие размеры, то балун будет отображаться в виде панели в нижней части карты.
                 //balloonPanelMaxMapArea: Infinity,
-                balloonContentLayout: BalloonContentLayout
+                balloonContentLayout: BalloonContentLayout,
+                hintContentLayout: MyHintContentLayout
             }
         }
     ]
@@ -1033,7 +1049,6 @@ else {
 if (typeof target.getGeoObjects != 'undefined') {
  //$("#close_first").css({'display' : 'block'});
  //alert("Клик по метке кластера, произошел!");
-
 }
 else {
 }
@@ -1045,10 +1060,10 @@ else {
 
 
 //Инициализация карты
-Map.prototype.init = function () {
-   this.root.addClass('ymap-ready');
+Map1.prototype.init = function () {
+   $('.main').addClass('ymap-ready');
 };
 
-   als.Map = Map;
-   return Map;
+   als.Map1 = Map1;
+   return Map1;
 });
